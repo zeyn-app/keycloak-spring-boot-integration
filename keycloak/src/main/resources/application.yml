@@ -1,0 +1,16 @@
+jwt:
+    auth:
+        converter:
+            principle-attribute: preferred_username
+            resource-id: springboot-keycloak-demo-client
+server:
+    port: 8081
+spring:
+    application:
+        name: springboot-keycloak-integration
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8080/realms/SpringBootKeycloakProject
+                    jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
